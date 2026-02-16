@@ -39,7 +39,8 @@ startGame.addEventListener("click", () => {
     let player2Name = document.querySelector("#player2Input").value;
     player1 = new Player(player1Name, "X");
     player2 = new Player(player2Name, "O");
-
+    player1Score.textContent = player1Name + ": " + player1.getScore();
+    player2Score.textContent = player2Name + ": " + player2.getScore();
     gameController.start();
 })
 
@@ -186,8 +187,9 @@ continueBtn.addEventListener("click", () => {
                 const winnerText = document.querySelector(".gameWinner");
                 currentPlayer.addScore();
 
-                player1Score.textContent = player1.getScore();
-                player2Score.textContent = player2.getScore();
+                player1Score.textContent = player1.getName() + ": " + player1.getScore();
+                player2Score.textContent = player2.getName() + ": " + player2.getScore();
+
                 winnerText.textContent = currentPlayer.getName() + " wins!";
                 gameOver = true;
 
